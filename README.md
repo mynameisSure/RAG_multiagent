@@ -349,38 +349,6 @@ final_score = relevance * 0.5 + credibility * 0.3 + freshness * 0.2
 - 是否引用不存在的证据 ID
 - 是否需要继续检索或重写
 
-## GitHub 上传注意事项
-
-以下内容不应提交：
-
-- `.env` 和任何 API Key
-- `data/` 下的私有文档、向量库、输出报告和临时文件
-- `.pytest_cache/`、`.ruff_cache/`、`__pycache__/`
-- SQLite、Chroma、日志和本地运行产物
-- IDE 配置和系统文件
-
-这些内容已经在 `.gitignore` 中忽略。
-
-## 已知注意点
-
-- `llm.py` 中的 `get_embeddings()` 需要根据实际 embedding provider 补全返回逻辑，确保 Chroma 可以正常向量化入库。
-- `retrieval/evidence.py` 中 `format_evidence_for_prompt()` 当前建议补充 `id={item.id}`，这样 Writer 才能稳定按 Evidence ID 生成引用。
-- `allowed_domains` 和 `blacklist` 已在请求模型中预留，但网页检索过滤逻辑还可以继续完善。
-- 当前多智能体是串行状态机调度，强调可控性和可观测性；后续可以把本地检索和网页检索并发化。
-
-## 测试
-
-运行单元测试：
-
-```powershell
-pytest
-```
-
-当前测试覆盖：
-
-- Manifest 文件哈希变更识别
-- Evidence 去重与评分
-- Pydantic 模型默认值和内容规范化
 
 ## 项目亮点
 
