@@ -1,0 +1,50 @@
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Python cache and bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Test, lint and type-check caches
+.pytest_cache/
+.pytest_tmp/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+pytest-cache-files-*/
+
+# Runtime data, private knowledge bases and generated outputs
+data/
+*.sqlite
+*.sqlite3
+*.db
+*.db-shm
+*.db-wal
+*.parquet
+
+# Logs and local runtime files
+*.log
+logs/
+outputs/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# IDE and OS files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
